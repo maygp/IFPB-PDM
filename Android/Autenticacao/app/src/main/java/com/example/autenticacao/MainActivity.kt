@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             var pass = this@MainActivity.etPassword.text.toString()
             val intent = Intent(this@MainActivity, LoggedIn::class.java)
 
-            if(user == "admin" && pass == "123abc"){
+            if(user == "admin" && pass == "1234"){
                 Toast.makeText(this@MainActivity, "Success!", Toast.LENGTH_SHORT).show()
                 startActivity(intent)
                 Log.i("APP_AUTH", "User logged in")
