@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Vai e Volta</string>
+    <string name="title_activity_outra">OutraActivity</string>
+    <string name="title_activity_sobre">SobreActivity</string>
+</resources>
