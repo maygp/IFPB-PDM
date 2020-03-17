@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
@@ -20,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var view : View
 
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -129,7 +127,6 @@ class MainActivity : AppCompatActivity() {
         janela.create().show()
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun valores(){
         val janela = AlertDialog.Builder(this)
         this.view = SeekBar(this)
@@ -138,13 +135,13 @@ class MainActivity : AppCompatActivity() {
 
         sb.max = 100
 
-        janela.setTitle("SeekBar")
+        janela.setTitle("Faixa de Valores")
         janela.setIcon(R.mipmap.ic_launcher)
         janela.setMessage("Escolha um Valor")
         janela.setView(this.view)
 
         janela.setPositiveButton("Ok") { _, _ ->
-            val msg = (this.view as SeekBar).progress.toString()
+            val msg = sb.progress.toString()
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
         }
 
@@ -157,7 +154,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun escolha(){
-
         val janela = AlertDialog.Builder(this)
         this.view = Switch(this)
 
@@ -182,7 +178,8 @@ class MainActivity : AppCompatActivity() {
     fun unico(){
         val janela = AlertDialog.Builder(this)
         this.view = RadioGroup(this)
-        val opcoes = arrayOf("Opcao 1", "Opcao 2", "Opcao 3")
+
+        val opcoes = arrayOf("Opção 1", "Opção 2", "Opção 3")
         val rGroup = this.view as RadioGroup
 
         for (opcao in opcoes){
@@ -193,11 +190,11 @@ class MainActivity : AppCompatActivity() {
 
         janela.setTitle("Radio Button")
         janela.setIcon(R.mipmap.ic_launcher)
-        janela.setMessage("Escolha uma opcao")
+        janela.setMessage("Escolha uma opção")
         janela.setView(this.view)
 
         janela.setPositiveButton("OK") { _,_ ->
-            val msg = rGroup.checkedRadioButtonId.toString()
+            val msg = rGroup.findViewById<RadioButton>(rGroup.checkedRadioButtonId).text.toString()
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
         }
 
@@ -210,7 +207,18 @@ class MainActivity : AppCompatActivity() {
 
     fun varios(){
         val janela = AlertDialog.Builder(this)
-        this.view = CheckBox(this)
+        this.view = LinearLayout(this)
+
+        val layout = this.view as LinearLayout
+        val opcoes = arrayOf("Opção 1", "Opção 2", "Opção 3", "Opção 4")
+
+        for (opcao in opcoes){
+            val chkbox = CheckBox(this)
+            chkbox.text = opcao
+            layout.addView(chkbox)
+        }
+
+        layout.orientation = LinearLayout.VERTICAL
 
         janela.setTitle("CheckBox")
         janela.setIcon(R.mipmap.ic_launcher)
@@ -218,7 +226,16 @@ class MainActivity : AppCompatActivity() {
         janela.setView(this.view)
 
         janela.setPositiveButton("OK") { _,_ ->
-            val msg = ""
+            var msg = ""
+
+            for(i in 0..3){
+                val cb = layout.getChildAt(i) as CheckBox
+                if (cb.isChecked) {
+                    if (msg == "")
+                    msg += cb.text.toString()
+                    else msg += " - " + cb.text.toString()
+                }
+            }
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
         }
 
