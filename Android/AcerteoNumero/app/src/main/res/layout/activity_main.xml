@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:fontFamily="casual"
+            android:textColor="#401645"
+            android:text="Acerte o número!"
+            android:textSize="35sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="15sp"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:textColor="#172838"
+            android:textSize="30sp"
+            android:text="Dicas:" />
+
+        <TextView
+            android:id="@+id/tvDica1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="25sp"
+            android:fontFamily="casual"
+            android:textColor="#401645"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvDica2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10sp"
+            android:fontFamily="casual"
+            android:textColor="#401645"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tvDica3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10sp"
+            android:textColor="#401645"
+            android:fontFamily="casual"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:paddingTop="25sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10sp"
+            android:textSize="30sp"
+            android:textColor="#401645"
+            android:fontFamily="cursive"
+            android:text="Sua resposta:" />
+
+        <EditText
+            android:id="@+id/etResposta"
+            android:fontFamily="cursive"
+            android:backgroundTint="#6B675E"
+            android:textColor="#243D51"
+            android:textSize="30sp"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btEnviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar Resposta"
+            android:fontFamily="casual"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="#3D424A"
+            android:textSize="10sp"
+            android:text="por Mayara Pereira"/>
+    </LinearLayout>
+
+</LinearLayout>
