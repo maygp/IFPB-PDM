@@ -32,8 +32,6 @@ class MainActivity : AppCompatActivity() {
         btEnviar.setOnClickListener{verifyAnswer()}
 
         tips()
-        //criar funcao para gerar numero aleatorio e chamar no oncreate e ao apertar no botao da dialog
-
     }
 
     /** Gera um número aleatório **/
@@ -73,37 +71,33 @@ class MainActivity : AppCompatActivity() {
         this.number = generaterandom()
         Log.i("APP_ACERTE", number.toString())
 
-        this.tvDica1.text = "1: Os divisores (entre 1 e 10) do número são: " + listOfDivisors(number).joinToString(
-            ", "
-        )
+        this.tvDica1.text = "1: Os divisores (entre 1 e 10) do número são: " + listOfDivisors(number).joinToString(", ")
 
-        if(checkEvenOdd(number)){
+        if(checkEvenOdd(number))
             this.tvDica2.text = "2: O número é par! "
-        }else
+        else
             this.tvDica2.text = "2: O número é ímpar!"
 
         this.tvDica3.text = "3: A quantidade total de divisores é: " + numberOfDivisors(number).toString()
-
     }
+
    /** Verifica a resposta e exibe o resultado **/
     fun verifyAnswer() {
-
        if (etResposta.text.toString() == "") {
            Toast.makeText(this, "Insira um valor entre 1 e 100", Toast.LENGTH_SHORT).show()
        } else {
            var hunch = etResposta.text.toString().toInt()
-           if (this.number == hunch) {
+           if (this.number == hunch)
                resultOk()
-           } else {
+           else
                resultFail()
-           }
        }
        etResposta.text.clear()
    }
+
     /** Caixa de diálogo caso a resposta esteja correta **/
     fun resultOk(){
         val window = AlertDialog.Builder(this)
-
         window.setTitle("Parabéns!")
         window.setMessage("Você acertou! :)")
         window.setPositiveButton("OK") { _, _ -> tips() }
