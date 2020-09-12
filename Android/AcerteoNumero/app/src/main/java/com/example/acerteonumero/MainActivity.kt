@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /** Gera um número aleatório **/
-    fun generaterandom(): Int{
+    fun generateRandom(): Int{
         return Random.nextInt(1, 100)
     }
 
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
     /** Exibe as dicas na tela **/
     fun tips(){
-        this.number = generaterandom()
+        this.number = generateRandom()
         Log.i("APP_ACERTE", number.toString())
 
         this.tvDica1.text = "1: Os divisores (entre 1 e 10) do número são: " + listOfDivisors(number).joinToString(", ")
