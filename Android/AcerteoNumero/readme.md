@@ -1,10 +1,8 @@
-Disciplina: Programação para Dispositivos Móveis (PDM)
+`Disciplina: Programação para Dispositivos Móveis`<br/>
+`Professora: Valéria Cavalcanti`<br/>
+`Período: 2020.1`
 
-Semestre: 2020.1
-
-Professora: Valéria Cavalcanti
-
-  **NOME**
+**NOME**
   
 Acerte o Número
 
