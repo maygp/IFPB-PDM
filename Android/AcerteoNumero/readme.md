@@ -1,14 +1,19 @@
 Disciplina: Programação para Dispositivos Móveis (PDM)
+
 Semestre: 2020.1
+
 Professora: Valéria Cavalcanti
 
   **NOME**
+  
 Acerte o Número
 
   **DESCRIÇÃO**
+  
 O jogador tentará adivinhar valores aleatórios gerados pelo aplicativo.
 
   **DINÂMICA DO APLICATIVO**
+  
 O jogo deverá gerar um número aleatório entre 1 (um) e 100 (cem), inclusive. Depois de gerado esse valor, o jogo deverá apresentar para o usuário 3 (três) dicas sobre esse respectivo número, sendo elas:
 
 * Quais são os divisores desse número que estão entre 1 e 10 (inclusive);
