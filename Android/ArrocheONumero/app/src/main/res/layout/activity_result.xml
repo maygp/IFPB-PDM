@@ -20,8 +20,7 @@
         android:gravity="center"
         android:fontFamily="casual"
         android:textColor="#0D9BE0"
-        android:textSize="30sp"
-        android:text="RESULTADO"/>
+        android:textSize="30sp"/>
   </LinearLayout>
 
   <LinearLayout
