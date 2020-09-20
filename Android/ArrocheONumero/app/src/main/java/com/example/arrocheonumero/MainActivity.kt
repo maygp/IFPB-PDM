@@ -40,21 +40,15 @@ class MainActivity : AppCompatActivity() {
 
     inner class OnClickBt : View.OnClickListener{
         override fun onClick(p0: View?) {
-            val it = Intent(this@MainActivity, ResultActivity::class.java)
 
             /** Verifica se o EditText está vazio **/
             if (etResposta.text.toString() == "") {
                 Toast.makeText(this@MainActivity, "Informe um valor dentro do intervalo mostrado!", Toast.LENGTH_SHORT).show()
             } else {
                 var chute = etResposta.text.toString().toInt()
-
                 /** Verifica se o valor informado pelo usuário é igual ao número sorteado ou igual aos limites. Se sim, o usuário perde **/
                 if(chute == this@MainActivity.num || chute == this@MainActivity.min || chute == this@MainActivity.max) {
-                    val result = "Você perdeu :("
-                    val msg = "Dica: Se você informar o número sorteado, ou os valores limite, você perde! Número Sorteado: ${num}"
-                    it.putExtra("RESULTADO", result)
-                    it.putExtra("MENSAGEM", msg)
-                    startActivity(it)
+                    perdeu()
                 } else if (chute < this@MainActivity.num) {
                     /** Define novo valor mínimo **/
                     this@MainActivity.min = chute
@@ -64,18 +58,32 @@ class MainActivity : AppCompatActivity() {
                     this@MainActivity.max = chute
                     this@MainActivity.tvIntervalo.text = "Intervalo: ${min} - ${max}"
                 }
-
                 this@MainActivity.etResposta.text.clear()
                 /** Verifica se o usuário ganhou **/
                 if(this@MainActivity.max - 1 == this@MainActivity.min + 1){
-                    val result = "Você ganhou :)"
-                    val msg = "Parabéns, você arrochou o número! (${this@MainActivity.num})"
-                    it.putExtra("RESULTADO", result)
-                    it.putExtra("MENSAGEM", msg)
-                    startActivity(it)
+                    ganhou()
                 }
             }
         }
+    }
+    /** Chama outra Activity com o resultado **/
+    fun perdeu(){
+        val it = Intent(this@MainActivity, ResultActivity::class.java)
+        val result = "Você perdeu :("
+        val msg = "Dica: Se você informar o número sorteado, ou os valores limite, você perde! Número Sorteado: ${num}"
+        it.putExtra("RESULTADO", result)
+        it.putExtra("MENSAGEM", msg)
+        startActivity(it)
+    }
+
+    /** Chama outra Activity com o resultado **/
+    fun ganhou(){
+        val it = Intent(this@MainActivity, ResultActivity::class.java)
+        val result = "Você ganhou :)"
+        val msg = "Parabéns, você arrochou o número! (${this@MainActivity.num})"
+        it.putExtra("RESULTADO", result)
+        it.putExtra("MENSAGEM", msg)
+        startActivity(it)
     }
 
     /** Restarta o jogo: retorna aos limites iniciais e gera outro número aleatório **/
